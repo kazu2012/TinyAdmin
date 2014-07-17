@@ -2,12 +2,12 @@
 	"name": "tinyadmin/tinyadmin",
     "type": "cakephp-plugin",
 	"require": {
-		"cakephp/cakephp": "~2.0",
+		"cakephp/cakephp": "~2.0@stable",
 		"lubos/twbs": "dev-master",
 		"php": ">=5.3.0",
         "composer/installers": "*"
 	},
 	"require-dev": {
-		"cakephp/debug_kit": "~2.0"
+		"cakephp/debug_kit": "~2.0@stable"
 	}
 }
