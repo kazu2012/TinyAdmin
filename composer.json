@@ -1,5 +1,6 @@
 {
 	"name": "tinyadmin/tinyadmin",
+    "type": "cakephp-plugin",
 	"require": {
 		"cakephp/cakephp": "~2.0",
 		"php": ">=5.3.0",
