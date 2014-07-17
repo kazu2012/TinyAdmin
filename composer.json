@@ -1,10 +1,9 @@
 {
 	"name": "tinyadmin/tinyadmin",
     "type": "cakephp-plugin",
-	"minimum-stability": "dev",
 	"require": {
 		"cakephp/cakephp": "~2.0",
-		"lubos/twbs": "dev-master",
+		"lubos/twbs": "dev-master@dev",
 		"php": ">=5.3.0",
         "composer/installers": "*"
 	},
