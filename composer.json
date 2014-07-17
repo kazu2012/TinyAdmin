@@ -10,5 +10,10 @@
 	},
 	"require-dev": {
 		"cakephp/debug_kit": "~2.0"
+	},
+	"scripts": {
+			"post-install-cmd": [
+					"git submodule update --init --recursive"
+			]
 	}
 }
