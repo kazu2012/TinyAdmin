@@ -3,7 +3,7 @@
     "type": "cakephp-plugin",
 	"require": {
 		"cakephp/cakephp": "~2.0",
-		"lubos/twbs": "@dev",
+		"lubos/twbs": "*",
 		"php": ">=5.3.0",
         "composer/installers": "*"
 	},
