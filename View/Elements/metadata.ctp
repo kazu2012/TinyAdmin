@@ -36,8 +36,9 @@ echo $this->Html->modal(
 	)),
 	implode('', array(
 		$this->Html->button(
-			'btn-success', __d('tiny_admin', 'Save changes'), 
+			__d('tiny_admin', 'Save changes'), 
 			array(
+				'type' => 'btn-success',
 				'id' => 'modal-save',
 				'href' => $this->Html->url(array(
 					'plugin' => 'tiny_admin',
@@ -47,8 +48,11 @@ echo $this->Html->modal(
 			)
 		),
 		$this->Html->button(
-			'btn-danger', __d('tiny_admin', 'Close'), 
-			array('data-dismiss' => 'modal')
+			__d('tiny_admin', 'Close'), 
+			array(
+				'type' => 'btn-danger',
+				'data-dismiss' => 'modal'
+			)
 		),
 	))
 );
