@@ -33,9 +33,27 @@ class JsonReader implements ConfigReaderInterface {
 				throw new ConfigureException(__d('tinyadmin', 'Could not load configuration files: %s or %s', $file, substr($file, 0, -4)));
 			}
 		}
-		debug(file_get_contents($file));
 		$config = json_decode(file_get_contents($file), true);
-		debug($config);die;
 		return $config;
+	}
+
+	public function dump($filename, $data) {
+		$runtime = array(
+			'routes' => '',
+			'controller_properties' => '',
+			'model_properties' => '',
+		);
+		if (isset($data['Hook'])) {
+			$data['Hook'] = array_diff_key($data['Hook'], $runtime);
+		}
+		$options = 0;
+		if (version_compare(PHP_VERSION, '5.3.3', '>=')) {
+			$options |= JSON_NUMERIC_CHECK;
+		}
+		if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
+			$options |= JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT;
+		}
+		$contents = Json::stringify($data, $options);
+		return $this->_writeFile($this->_path . $filename, $contents);
 	}
 }
