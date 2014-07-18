@@ -1,0 +1,32 @@
+{
+	"TinyAdmin": {
+		//"superadmin": {
+			//"email": "info@example.com",
+			//"password": "secret"
+		//},
+		"domIds": ["content"],
+		"blacklist": [
+			{
+				"plugin": "tiny_admin",
+				"controller": "auth",
+				"action": "login"
+			}
+		],
+		"Auth": {
+			"loginAction": {
+				"plugin": "tiny_admin",
+				"controller": "auth",
+				"action": "login"
+			},
+			"loginRedirect": "/",
+			"logoutRedirect": "/",
+			"authenticate": {
+				"userModel": "TinyAdmin.User",
+				"passwordHasher": "Blowfish",
+				"fields": {
+					"username": "email"
+				}
+			}
+		}
+	}
+}

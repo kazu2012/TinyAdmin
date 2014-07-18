@@ -1,18 +1,10 @@
 <?php
-Configure::load('TinyAdmin.config', 'default', true);
-Configure::write('TinyAdmin.Auth', array(
-	'loginAction' => array(
-		'plugin' => 'tiny_admin',
-		'controller' => 'auth',
-		'action' => 'login',
-	),
-	'loginRedirect' => '/',
-	'logoutRedirect' => '/',
-	'authenticate' => array(
-		'TinyAdmin.Admin' => array(
-			'userModel' => 'TinyAdmin.User',
-			'passwordHasher' => 'Blowfish',
-			'fields' => array('username' => 'email'),
-		)
-	)
-));
+App::uses('JsonReader', 'TinyAdmin.Configure');
+Configure::config('json', new JsonReader());
+if (file_exists(App::pluginPath('TinyAdmin') . 'Config' . DS . 'tinyadmin.json')) {
+	Configure::load('tinyadmin', 'json');
+}
+if (file_exists(APP . 'Config' . DS . 'tinyadmin.json')) {
+	Configure::load('tinyadmin', 'json');
+}
+debug(Configure::read());die;
